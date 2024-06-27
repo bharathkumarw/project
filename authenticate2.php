@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <style>
+        body {
+            background-image:url("https://images.collegedunia.com/public/college_data/images/campusimage/159418882120.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height:100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color:orange;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            text-align: right;
+            font-weight: bold;
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            grid-column: 2;
+            grid-row: auto;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            grid-column: span 2;
+            grid-row: auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        #button5{position: fixed;
+    padding: 10px;
+top:20px;
+left:20px;
+    background-color:red; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 1px;
+border:none;
+cursor:pointer;
+}
+    </style>
+</head>
+<body>
+    <h1>modification Form</h1>
+    <form action="storedatabase.php" method="post">
+        <label for="Sno">Sno</label>
+        <input type="text" id="Sno" name="Sno" placeholder="Enter your Sno" required>
+
+        <label for="Route">Route:</label>
+        <input type="text" id="Route" name="Route" placeholder="Enter route" required>
+
+        <label for="Fee">Fee:</label>
+        <textarea id="comment" name="comment" rows="4" cols="4" placeholder="Enter fee" required></textarea>
+
+        <input type="submit" value="Submit data">
+    </form>
+<div id="button5">
+        <a href="webpagee.html" class="back-button">Back</a>
+    </div>
+</body>
+</html>

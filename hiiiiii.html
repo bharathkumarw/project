@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Transportation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+    /* Add CSS styles for the map container */
+    .map-container {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <ul class="menu">
+        <div class="logo">
+            <img src="https://image3.mouthshut.com/images/imagesp/925716682s.jpg" alt="wow">
+        </div>
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#" id="showMap"><i class="fas fa-route"></i> Routes</a></li>
+        <li><a href="Feestructure.html"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> Feestructure</a></li>
+        <li><a href="feedback1.html"><i class="fa-solid fa-comment"></i> Feedback</a></li>
+        <li><a href="Register.html"><i class="fa fa-registered" aria-hidden="true"></i> Register</a></li>
+        <li><a href="allocate.php"><i class="fa fa-registered" aria-hidden="true"></i> Allocation of buses</a></li>
+    </ul>
+</div>
+<div class="content">
+    <marquee class="marquee" behavior="alternate" height="600px" direction="top" color="brown">COLLEGE TRANSPORTATION</marquee>
+</div>
+
+<div class="map-container" id="mapDiv">
+    <h2>MAP</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61258.68919594922!2d80.43166336342577!3d16.3398956509508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f5c460ab7d1d%3A0x8c86e4f36490336b!2sVasireddy%20Venkatadri%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1695646399641!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="1000" height="100" style="border:100px; "></iframe>
+</div>
+
+<footer>
+    <h4>For more details, visit our websites</h4>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <div class="wrapper">
+        <div class="dot">
+            <div class="icon">
+                <i class="fab fa-twitter"></i>
+                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fvvitguntur"></a>
+            </div>
+            <span>Twitter</span>
+        </div>
+        <div class="dot">
+            <div class="icon">
+                <i class="fab fa-google"></i>
+                <a href="https://www.vvitguntur.com/"></a>
+            </div>
+            <span>Google</span>
+        </div>
+        <div class="dot">
+            <div class="icon">
+                <i class="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/our_vvit/"></a>
+            </div>
+            <span>Instagram</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // JavaScript to show the map container when "Routes" link is clicked
+    document.getElementById('showMap').addEventListener('click', function() {
+        var mapDiv = document.getElementById('mapDiv');
+        mapDiv.style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
+

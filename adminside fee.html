@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webpage with Buttons</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+           
+            background-image: url('buses.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .button-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .button {
+            background-color: #0074d9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+         #button5{position: fixed;
+    padding: 10px;
+top:20px;
+left:20px;
+    background-color:red; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 1px;
+border:none;
+cursor:pointer;
+}
+
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+footer{
+  display: grid;
+  height: 100px;
+  width: 100%;
+  place-items: center;
+  background-color: cyan;
+
+}
+.wrapper .dot{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  
+  margin: 0 5px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:hover{
+  width: 200px;
+}
+.wrapper .dot .icon{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:nth-child(1):hover .icon{
+  background: #4267B2;
+}
+.wrapper .dot:nth-child(2):hover .icon{
+  background: #1DA1F2;
+}
+.wrapper .dot:nth-child(3):hover .icon{
+  background: #E1306C;
+}
+
+.wrapper .dot .icon i{
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:hover .icon i{
+  color: #fff;
+}
+.wrapper .dot span{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:nth-child(1) span{
+  color: #4267B2;
+}
+.wrapper .dot:nth-child(2) span{
+  color: #1DA1F2;
+}
+.wrapper .dot:nth-child(3) span{
+  color: #E1306C;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="button-container">
+        <!-- Add onclick attribute to the buttons -->
+        <button class="button" onclick="navigateToPage1()"> fee details</button>
+        <button class="button" onclick="navigateToPage3()">fee update</button>
+    </div>
+</div>
+
+<script>
+    // JavaScript functions to navigate to different pages
+    function navigateToPage1() {
+        // Replace 'page1.html' with the URL of the page you want to navigate to
+        window.location.href = 'adminfeestructure.php';
+    }
+
+    
+function navigateToPage3() {
+        // Replace 'page1.html' with the URL of the page you want to navigate to
+        window.location.href = 'authentication.html';
+    }
+</script>
+<div id="button5">
+        <a href="admin_module.html" class="back-button">Back</a>
+    </div>
+<footer>
+        <h4>For more details,visit our websites</h4>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   
+      <div class="wrapper">
+         <div class="dot">
+            <div class="icon">
+               <i class="fab fa-twitter"></i>
+              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fvvitguntur">
+            </div>
+            <span>Twitter</span>
+         </div>
+         <div class="dot">
+            <div class="icon">
+               <i class="fab fa-google"></i>
+               <a href="https://www.vvitguntur.com/"</a>
+            </div>
+            <span>Google</span>
+         </div>
+         <div class="dot">
+            <div class="icon">
+               <i class="fab fa-instagram"></i>
+               <a href="https://www.instagram.com/our_vvit/"</a>
+            </div>
+            <span>Instagram</span>
+         </div>
+         
+      </div>
+    </footer>
+
+</body>
+</html>

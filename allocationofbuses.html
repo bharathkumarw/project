@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Image Example</title>
+    <style>
+        #open1 {
+            height: 70px;
+            width: 120px;
+            background-color: black;
+            color: white;
+        }
+        #open2 {
+            height: 70px;
+            width: 120px;
+            background-color: black;
+            color: white;
+        }
+        
+        
+        #button5{position: fixed;
+    padding: 10px;
+    top:20px;
+    right:20px;
+    background-color:red; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 1px;
+    border:none;
+    cursor:pointer;
+}
+    </style>
+</head>
+<body style="background-image: url('buses.jpg'); background-size: cover;">
+    <button id="open1">student checking</button>
+   
+   
+    <script>
+        var button1 = document.getElementById('open1');
+        button1.addEventListener('click', function() {
+            window.location.href = 'allocate.php';
+        });
+
+        
+    </script>
+
+<div id="button5">
+        <a href="webpagee.html" class="back-button">Back</a>
+    </div>
+</body>
+</html>

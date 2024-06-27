@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="log.css">
+body{
+background-image:url(vvit.jpg);
+}
+</head>
+
+<body>
+  <header>
+    <h1>VASIREDDY VENKATADRI INSTITUTE OF TECHNOLOGY</h1>
+<div class="logo">
+            <img
+               src="https://image3.mouthshut.com/images/imagesp/925716682s.jpg" alt="wow">
+         </div> 
+  </header>
+
+  <body>
+  <div class="center">
+    <h1>Login</h1>
+    <form method="post" id="login-form">
+      <div class="login-type">
+        <input type="radio" id="admin-login" name="login-type" value="admin" checked>
+        <label for="admin-login">Admin</label>
+        <input type="radio" id="user-login" name="login-type" value="user">
+        <label for="user-login">User</label>
+      </div>
+      <div class="txt_field">
+        <input type="text" id="username" name="username" required>
+        <span></span>
+        <label>Username</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" id="password" name="password" required>
+        <span></span>
+        <label>Password</label>
+      </div>
+      <div class="pass"></div>
+      <input type="submit" value="Login" />
+
+      <div class="signup_link">
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const loginType = document.querySelector('input[name="login-type"]:checked').value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const adminCredentials = { username: "bharath", password: "bharath@123" };
+      const userCredentials = { username: "user", password: "password" };
+
+      if (loginType === "admin" && username === adminCredentials.username && password === adminCredentials.password) {
+        alert("Admin login successful!");
+        window.location.href = "./admin_module.html";
+      } else if (loginType === "user" && username === userCredentials.username && password === userCredentials.password) {
+        alert("User login successful!");
+        window.location.href = "./webpagee.html"; // If you have a separate dashboard for users
+      } else {
+        alert("Invalid credentials. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>

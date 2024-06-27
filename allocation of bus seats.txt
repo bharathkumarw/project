@@ -1,0 +1,429 @@
+import java.sql.*;
+import java.util.*;
+
+class Bus {
+    private String route;
+    private int capacity;
+    private int availableSeats;
+
+    public Bus(String route, int capacity) {
+        this.route = route;
+        this.capacity = capacity;
+        this.availableSeats = capacity;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public boolean bookSeat() {
+        if (availableSeats > 0) {
+            availableSeats--;
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class Student {
+    private String name;
+    private String route;
+
+    public Student(String name, String route) {
+        this.name = name;
+        this.route = route;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+}
+
+public class Main {
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String JDBC_USER = "your_database_username";
+    private static final String JDBC_PASSWORD = "your_database_password";
+
+    public static void main(String[] args) {
+        List<Bus> buses = Arrays.asList(
+                new Bus("Route 1", 50),
+                new Bus("Route 2", 40),
+                new Bus("Route 1", 50)
+        );
+
+        try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) {
+            Map<String, List<Student>> studentsByRoute = fetchStudentsFromDatabase(connection);
+
+            for (String route : studentsByRoute.keySet()) {
+                List<Student> students = studentsByRoute.get(route);
+                allocateSeatsForRoute(route, students, buses);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Map<String, List<Student>> fetchStudentsFromDatabase(Connection connection) throws SQLException {
+        Map<String, List<Student>> studentsByRoute = new HashMap<>();
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT name, route FROM students")) {
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String route = resultSet.getString("route");
+                studentsByRoute.putIfAbsent(route, new ArrayList<>());
+                studentsByRoute.get(route).add(new Student(name, route));
+            }
+        }
+
+        return studentsByRoute;
+    }
+
+    private static void allocateSeatsForRoute(String route, List<Student> students, List<Bus> buses) {
+        for (Student student : students) {
+            boolean allocated = false;
+            for (Bus bus : buses) {
+                if (bus.getRoute().equals(route) && bus.bookSeat()) {
+                    System.out.println(student.getName() + " has been successfully allocated seat on bus " + bus.getRoute());
+                    allocated = true;
+                    break;
+                }
+            }
+            if (!allocated) {
+                System.out.println("Sorry, no available seats on any bus for " + student.getName() + " on route " + route);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.sql.*;
+import java.util.*;
+
+class Bus {
+    private String route;
+    private int capacity;
+    private int availableSeats;
+
+    public Bus(String route, int capacity) {
+        this.route = route;
+        this.capacity = capacity;
+        this.availableSeats = capacity;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public boolean bookSeat() {
+        if (availableSeats > 0) {
+            availableSeats--;
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class Student {
+    private String name;
+    private String route;
+    private Bus bus;
+    private int seatNumber;
+
+    public Student(String name, String route) {
+        this.name = name;
+        this.route = route;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setAllocation(Bus bus, int seatNumber) {
+        this.bus = bus;
+        this.seatNumber = seatNumber;
+    }
+
+    public void checkAllocation() {
+        if (bus != null && seatNumber != 0) {
+            System.out.println(name + " is allocated on bus " + bus.getRoute() + " at seat number " + seatNumber);
+        } else {
+            System.out.println(name + " has not been allocated a seat yet.");
+        }
+    }
+}
+
+public class Main {
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String JDBC_USER = "your_database_username";
+    private static final String JDBC_PASSWORD = "your_database_password";
+
+    public static void main(String[] args) {
+        List<Bus> buses = Arrays.asList(
+                new Bus("Route 1", 50),
+                new Bus("Route 2", 40),
+                new Bus("Route 1", 50)
+        );
+
+        try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) {
+            Map<String, List<Student>> studentsByRoute = fetchStudentsFromDatabase(connection);
+
+            List<Student> allocatedStudents = new ArrayList<>();
+
+            for (String route : studentsByRoute.keySet()) {
+                List<Student> students = studentsByRoute.get(route);
+                allocateSeatsForRoute(route, students, buses, allocatedStudents);
+            }
+
+            printAllocatedStudents(allocatedStudents);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Map<String, List<Student>> fetchStudentsFromDatabase(Connection connection) throws SQLException {
+        Map<String, List<Student>> studentsByRoute = new HashMap<>();
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT name, route FROM students")) {
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String route = resultSet.getString("route");
+                studentsByRoute.putIfAbsent(route, new ArrayList<>());
+                studentsByRoute.get(route).add(new Student(name, route));
+            }
+        }
+
+        return studentsByRoute;
+    }
+
+    private static void allocateSeatsForRoute(String route, List<Student> students, List<Bus> buses, List<Student> allocatedStudents) {
+        for (Student student : students) {
+            boolean allocated = false;
+            for (Bus bus : buses) {
+                if (bus.getRoute().equals(route) && bus.bookSeat()) {
+                    student.setAllocation(bus, bus.getCapacity() - bus.getAvailableSeats());
+                    allocatedStudents.add(student);
+                    System.out.println(student.getName() + " has been successfully allocated seat on bus " + bus.getRoute());
+                    allocated = true;
+                    break;
+                }
+            }
+            if (!allocated) {
+                System.out.println("Sorry, no available seats on any bus for " + student.getName() + " on route " + route);
+            }
+        }
+    }
+
+    private static void printAllocatedStudents(List<Student> allocatedStudents) {
+        System.out.println("\nAllocated Students List:");
+        for (Student student : allocatedStudents) {
+            System.out.println(student.getName() + " - Bus: " + student.getBus().getRoute() + ", Seat: " + student.getSeatNumber());
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+class Bus {
+    private $route;
+    private $capacity;
+    private $availableSeats;
+
+    public function __construct($route, $capacity) {
+        $this->route = $route;
+        $this->capacity = $capacity;
+        $this->availableSeats = $capacity;
+    }
+
+    public function getRoute() {
+        return $this->route;
+    }
+
+    public function getCapacity() {
+        return $this->capacity;
+    }
+
+    public function getAvailableSeats() {
+        return $this->availableSeats;
+    }
+
+    public function bookSeat() {
+        if ($this->availableSeats > 0) {
+            $this->availableSeats--;
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class Student {
+    private $name;
+    private $route;
+    private $bus;
+    private $seatNumber;
+
+    public function __construct($name, $route) {
+        $this->name = $name;
+        $this->route = $route;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getRoute() {
+        return $this->route;
+    }
+
+    public function getBus() {
+        return $this->bus;
+    }
+
+    public function getSeatNumber() {
+        return $this->seatNumber;
+    }
+
+    public function setAllocation($bus, $seatNumber) {
+        $this->bus = $bus;
+        $this->seatNumber = $seatNumber;
+    }
+
+    public function checkAllocation() {
+        if ($this->bus != null && $this->seatNumber != 0) {
+            echo $this->name . " is allocated on bus " . $this->bus->getRoute() . " at seat number " . $this->seatNumber . "\n";
+        } else {
+            echo $this->name . " has not been allocated a seat yet.\n";
+        }
+    }
+}
+
+$buses = [
+    new Bus("Route 1", 50),
+    new Bus("Route 2", 40),
+    new Bus("Route 1", 50)
+];
+
+$studentsByRoute = [
+    "Route 1" => [],
+    "Route 2" => [],
+    // Add more routes as needed
+];
+
+// Fetch students from database and organize by route
+// Example:
+// $studentsByRoute["Route 1"][] = new Student("John", "Route 1");
+
+$allocatedStudents = [];
+
+foreach ($studentsByRoute as $route => $students) {
+    allocateSeatsForRoute($route, $students, $buses, $allocatedStudents);
+}
+
+printAllocatedStudents($allocatedStudents);
+
+function allocateSeatsForRoute($route, $students, $buses, &$allocatedStudents) {
+    foreach ($students as $student) {
+        $allocated = false;
+        foreach ($buses as $bus) {
+            if ($bus->getRoute() == $route && $bus->bookSeat()) {
+                $student->setAllocation($bus, $bus->getCapacity() - $bus->getAvailableSeats());
+                $allocatedStudents[] = $student;
+                echo $student->getName() . " has been successfully allocated seat on bus " . $bus->getRoute() . "\n";
+                $allocated = true;
+                break;
+            }
+        }
+        if (!$allocated) {
+            echo "Sorry, no available seats on any bus for " . $student->getName() . " on route " . $route . "\n";
+        }
+    }
+}
+
+function printAllocatedStudents($allocatedStudents) {
+    echo "\nAllocated Students List:\n";
+    foreach ($allocatedStudents as $student) {
+        echo $student->getName() . " - Bus: " . $student->getBus()->getRoute() . ", Seat: " . $student->getSeatNumber() . "\n";
+    }
+}
+
+?>

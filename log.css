@@ -1,0 +1,421 @@
+/* Reset some default browser styles */
+body, h1, h2, p, form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-image:url(vvitbus.jpg);
+  background-size: cover;
+  
+}
+/* Reset some default browser styles */
+body, h1, h2, p, form {
+  margin: 0;
+  padding: 0;
+}
+.logo{
+float:top-left;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background-image:url("vvit.jpg");
+}
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #fff; /* Adjust background color if needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  height:auto;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  margin-left: 10px;
+}
+
+.center {
+  max-width: 400px;
+ 
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.login-type {
+  margin-bottom: 20px;
+}
+
+.login-type input {
+  display: none;
+}
+
+.login-type label {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.login-type input:checked + label {
+  background-color: #333;
+  color: #fff;
+}
+.txt_field {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.txt_field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.txt_field input:focus + span {
+  transform: translateY(-30px);
+}
+
+.txt_field span::before {
+  content: attr(label);
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #333;
+  transition: 0.5s;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.pass {
+  text-align: center;
+  margin-top: 10px;
+}
+/* Reset some default browser styles */
+body, h1, h2, p, form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  margin-left: 10px;
+}
+
+.center {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.login-type {
+  margin-bottom: 20px;
+}
+
+.login-type input {
+  display: none;
+}
+
+.login-type label {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.login-type input:checked + label {
+  background-color: #333;
+  color: #fff;
+}
+
+.txt_field {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.txt_field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.txt_field input:focus + span {
+  transform: translateY(-30px);
+}
+
+.txt_field span::before {
+  content: attr(label);
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #333;
+  transition: 0.5s;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.logo img{
+       
+	float:top-left;
+	width: 200px;
+	height: 100px;
+}
+.pass {
+  text-align: center;
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Add more styles as needed */
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Add more styles as needed */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  margin-left: 10px;
+}
+
+.center {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.login-type {
+  margin-bottom: 20px;
+}
+
+.login-type input {
+  display: none;
+}
+
+.login-type label {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.login-type input:checked + label {
+  background-color: #333;
+  color: #fff;
+}
+
+.txt_field {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.txt_field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.txt_field input:focus + span {
+  transform: translateY(-30px);
+}
+
+.txt_field span::before {
+  content: attr(label);
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #333;
+  transition: 0.5s;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.pass {
+  text-align: center;
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+footer{
+  display: grid;
+  height: 100px;
+  width: 100%;
+  place-items: center;
+  background-color: red;
+
+}
+.wrapper .dot{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  
+  margin: 0 5px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:hover{
+  width: 200px;
+}
+.wrapper .dot .icon{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:nth-child(1):hover .icon{
+  background: #4267B2;
+}
+.wrapper .dot:nth-child(2):hover .icon{
+  background: #1DA1F2;
+}
+.wrapper .dot:nth-child(3):hover .icon{
+  background: #E1306C;
+}
+
+.wrapper .dot .icon i{
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:hover .icon i{
+  color: #fff;
+}
+.wrapper .dot span{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .dot:nth-child(1) span{
+  color: #4267B2;
+}
+.wrapper .dot:nth-child(2) span{
+  color: #1DA1F2;
+}
+.wrapper .dot:nth-child(3) span{
+  color: #E1306C;
+}
+/* Add more styles as needed */
